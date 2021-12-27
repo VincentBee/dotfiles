@@ -24,7 +24,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'navarasu/onedark.nvim'
     Plug 'itchyny/lightline.vim'
-    Plug 'vim-scripts/vim-gitgutter'
+"    Plug 'vim-scripts/vim-gitgutter'
 call plug#end()
 
 " Easely open vimrc file
@@ -50,6 +50,12 @@ noremap J }
 noremap K {
 noremap H b
 noremap L w
+
+" Move blocks
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+vnoremap <C-l> >
+vnoremap <C-h> <
 
 " Theme and colors
 colorscheme onedark
