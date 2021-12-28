@@ -39,13 +39,19 @@ call plug#begin('~/.config/nvim/plugged')
 
     " Theme and colors
     Plug 'navarasu/onedark.nvim'
-    Plug 'itchyny/lightline.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
 "    Plug 'vim-scripts/vim-gitgutter'
 call plug#end()
 
 " Easely open vimrc file
 noremap <C-i> <Cmd>e ~/.config/nvim/init.vim<CR>
+
+" Close file
+" Delete the current buffer instead of closing the nvim application
+nnoremap <C-w> <Cmd>bd<CR>
+nnoremap <C-s> <Cmd>w<CR>
 
 " Remap space bar for leader key
 nnoremap <SPACE> <Nop>
@@ -62,29 +68,19 @@ set softtabstop=4
 set expandtab
 set clipboard=unnamedplus
 
-" Close file
-" Delete the current buffer instead of closing the nvim application
-nnoremap <C-w> <Cmd>bd<CR>
-
 " Block navigation
 noremap J }
 noremap K {
 noremap H b
 noremap L w
 
-" In order to select text
-" v     -> select inline
-" <S-v> -> select whole line
-" <C-v> -> select square
-
 " Move blocks
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
-vnoremap <C-l> >
-vnoremap <C-h> <
 
 " Theme and colors
 colorscheme onedark
+let g:airline_theme='onedark'
 
 " File explorer
 nmap <space>e <Cmd>CocCommand explorer --preset floating<CR>
