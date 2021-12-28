@@ -1,11 +1,14 @@
 if !1 | finish | endif
 
+" Automatically install plug vim
 if empty(glob('~/.config/nvim/plugged/plug.vim'))
     silent !curl -fLo ~/.config/nvim/plugged/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+
+    " Allow nvim to have autocompletion
     Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
     Plug 'yaegassy/coc-intelephense', {'do': 'yarn install --frozen-lockfile'}
@@ -18,12 +21,26 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'fannheyward/coc-markdownlint'
     Plug 'antonk52/coc-cssmodules'
     Plug 'nelsyeung/twig.vim'
-    Plug 'nvim-lua/popup.nvim'
+
+    " Allow to surround an existing text with something
     Plug 'tpope/vim-surround'
+    " Automatically close blocks when open it.
+    Plug 'jiangmiao/auto-pairs'
+
+    " Fuzzy finder accross the project
+    " It use ripgrep to work
+    " Use it as follow:
+    " <space>ff -> search file names
+    " <space>fg -> search file content
+    " <space>fb -> search in buffer list
+    Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+
+    " Theme and colors
     Plug 'navarasu/onedark.nvim'
     Plug 'itchyny/lightline.vim'
+
 "    Plug 'vim-scripts/vim-gitgutter'
 call plug#end()
 
@@ -45,11 +62,20 @@ set softtabstop=4
 set expandtab
 set clipboard=unnamedplus
 
+" Close file
+" Delete the current buffer instead of closing the nvim application
+nnoremap <C-w> <Cmd>bd<CR>
+
 " Block navigation
 noremap J }
 noremap K {
 noremap H b
 noremap L w
+
+" In order to select text
+" v     -> select inline
+" <S-v> -> select whole line
+" <C-v> -> select square
 
 " Move blocks
 vnoremap <C-j> :m '>+1<CR>gv=gv
@@ -73,7 +99,6 @@ let g:coc_explorer_global_presets = {
 nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep prompt_prefix=🔍<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
  
 " Every file stay in the buffer
 set hidden
