@@ -27,6 +27,12 @@ call plug#begin('~/.config/nvim/plugged')
     " Automatically close blocks when open it.
     Plug 'jiangmiao/auto-pairs'
 
+    " Toggle comments
+    " Use as follow:
+    " <S-v> [j]+ gc -> comment block
+    " gcc           => comment line
+    Plug 'manasthakur/vim-commentor'
+
     " Fuzzy finder accross the project
     " It use ripgrep to work
     " Use it as follow:
