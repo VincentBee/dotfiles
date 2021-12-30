@@ -51,13 +51,13 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'vim-scripts/vim-gitgutter'
 call plug#end()
 
-" Easely open vimrc file
-noremap <C-i> <Cmd>e ~/.config/nvim/init.vim<CR>
-
 " Close file
 " Delete the current buffer instead of closing the nvim application
 nnoremap <C-w> <Cmd>bd<CR>
-nnoremap <C-s> <Cmd>w<CR>
+nnoremap <C-s> <Cmd>wall<CR>
+
+" Format the whole file
+nnoremap <C-f> ggVG=
 
 " Remap space bar for leader key
 nnoremap <SPACE> <Nop>
@@ -73,6 +73,8 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set clipboard=unnamedplus
+" Highlight trailiing spaces and tabulation
+set list listchars=tab:»·,trail:·
 
 " Block navigation
 noremap J }
