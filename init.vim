@@ -72,7 +72,10 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set autoindent
+set smartindent
 set clipboard=unnamedplus
+
 " Highlight trailiing spaces and tabulation
 set list listchars=tab:»·,trail:·
 
@@ -88,6 +91,8 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Theme and colors
 colorscheme onedark
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 let g:airline_theme='onedark'
 
 " File explorer
