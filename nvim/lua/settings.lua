@@ -6,10 +6,11 @@ vim.g.mapleader = ' '
 -- highlight the current line
 vim.opt.cursorline = true
 -- highlight trailing characters
-vim.opt.listchars = {eol = '↲', tab = '▸ ', trail = '·'}
+vim.opt.listchars = { trail = '·' }
 
 -- bindings
 vim.api.nvim_set_keymap('n', '<space>', '<nop>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'q', ':bd<cr>', { noremap = true })
 
 vim.cmd [[
   set tabstop=4
@@ -20,5 +21,5 @@ vim.cmd [[
   set smartindent
   set clipboard=unnamedplus
   set list listchars=tab:»·,trail:·
-  ]]
+]]
 

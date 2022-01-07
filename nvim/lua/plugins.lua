@@ -24,6 +24,7 @@ Plug 'Pocco81/AutoSave.nvim'
 Plug 'navarasu/onedark.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'nelsyeung/twig.vim'
 
 vim.call('plug#end')
 
