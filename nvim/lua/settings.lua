@@ -11,6 +11,7 @@ vim.opt.listchars = { trail = '·' }
 -- bindings
 vim.api.nvim_set_keymap('n', '<space>', '<nop>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'q', ':bd<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<space>fe', ':NvimTreeToggle<cr>', { noremap = true })
 
 vim.cmd [[
   set tabstop=4
