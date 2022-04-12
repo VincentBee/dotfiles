@@ -1,11 +1,12 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # P10K / oh-my-zsh
 export ZSH="/home/vincent/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
+    docker
     git
     zsh-autosuggestions
 )
@@ -18,4 +19,6 @@ eval "$(nodenv init -)"
 
 # TMUX
 if [ "$TMUX" = ""  ]; then tmux; fi
+
+alias n=nvim
 
