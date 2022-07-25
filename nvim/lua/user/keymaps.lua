@@ -16,9 +16,10 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 local wk = require("which-key")
 wk.register({
   ["<leader>c"] = { ":bdelete<CR>", "Close buffer" },
-  ["<leader>e"] = { ":Lexplore<CR>", "Open file explorer" },
+  ["<leader>h"] = { ":noh<CR>", "Clear highlight" },
+  ["<leader>e"] = { ":NvimTreeToggle<CR>", "Open file explorer" },
   ["<leader>w"] = { ":w<CR>", "Save file" },
   ["<leader>ps"] = { ":PackerSync<CR>", "Download plugins" },
-  ["<leader>pw"] = { ":luafile $MYVIMRC<CR>", "Save configuration" },
+  ["<leader>pw"] = { ":so %<CR>", "Save configuration" },
 });
 

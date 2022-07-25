@@ -18,9 +18,24 @@ packer.init {
 }
 
 return packer.startup(function(use)
+	-- Utils
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-surround'
 	use 'terrortylor/nvim-comment'
+
+	-- Interface
+	use 'navarasu/onedark.nvim'
+	use {
+  	'kyazdani42/nvim-tree.lua',
+  	requires = {
+  	  'kyazdani42/nvim-web-devicons', -- optional, for file icons
+		},
+		tag = 'nightly' -- optional, updated every week. (see issue #1193)
+	}
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
 	use {
 		'folke/which-key.nvim',
 		config = function()
@@ -29,8 +44,36 @@ return packer.startup(function(use)
 				-- or leave it empty to use the default settings
 				-- refer to the configuration section below
 			}
-	`	end
+		end
 	}
+
+	-- LSP
+	use 'neovim/nvim-lspconfig'
+	use { 'williamboman/mason.nvim' }
+
+
+	-- Treesitter
+	use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	}
+	use {
+    'windwp/nvim-autopairs',
+		wants = 'nvim-treesitter',
+		module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
+		config = function()
+			require("config.autopairs").setup()
+		end,
+	}
+	use {
+		"windwp/nvim-ts-autotag",
+		wants = "nvim-treesitter",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-ts-autotag").setup { enable = true }
+		end,
+	}
+
   if packer_bootstrap then
     require('packer').sync()
   end
