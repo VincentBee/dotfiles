@@ -7,6 +7,9 @@ plugin.setup {
 	highlight = {
 		enable = true
 	},
+	autopair = {
+		enabled = true
+	},
 	indent = {
 		enable = true
 	}

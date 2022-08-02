@@ -20,6 +20,7 @@ wk.register({
   ["<leader>e"] = { ":NvimTreeToggle<CR>", "Open file explorer" },
   ["<leader>w"] = { ":w<CR>", "Save file" },
   ["<leader>ps"] = { ":PackerSync<CR>", "Download plugins" },
+  ["<leader>pp"] = { ":Mason<CR>", "Mason" },
   ["<leader>pw"] = { ":so %<CR>", "Save configuration" },
 });
 

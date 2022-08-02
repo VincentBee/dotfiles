@@ -9,6 +9,7 @@ export const plop = {
 };
 
 export const qweqwe = () => {
-	return ()
+	return {
+	}
 }
 
