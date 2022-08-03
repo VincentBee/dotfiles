@@ -17,11 +17,11 @@ packer.init {
 	}
 }
 
+
 return packer.startup(function(use)
 	-- Utils
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-surround'
-	use 'terrortylor/nvim-comment'
 
 	-- Interface
 	use 'navarasu/onedark.nvim'
@@ -53,22 +53,10 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
 	}
-	use {
-    'windwp/nvim-autopairs',
-		wants = 'nvim-treesitter',
-		module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
-		config = function()
-			require("config.autopairs").setup()
-		end,
-	}
-	use {
-		"windwp/nvim-ts-autotag",
-		wants = "nvim-treesitter",
-		event = "InsertEnter",
-		config = function()
-			require("nvim-ts-autotag").setup { enable = true }
-		end,
-	}
+
+	for key, plugin in pairs(_G.registeredPlugins) do
+		use (plugin)
+	end
 
   if packer_bootstrap then
     require('packer').sync()

@@ -14,13 +14,5 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 
 local wk = require("which-key")
-wk.register({
-  ["<leader>c"] = { ":bdelete<CR>", "Close buffer" },
-  ["<leader>h"] = { ":noh<CR>", "Clear highlight" },
-  ["<leader>e"] = { ":NvimTreeToggle<CR>", "Open file explorer" },
-  ["<leader>w"] = { ":w<CR>", "Save file" },
-  ["<leader>ps"] = { ":PackerSync<CR>", "Download plugins" },
-  ["<leader>pp"] = { ":Mason<CR>", "Mason" },
-  ["<leader>pw"] = { ":so %<CR>", "Save configuration" },
-});
+wk.register(_G.keymaps)
 
