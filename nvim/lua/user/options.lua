@@ -4,6 +4,7 @@ local options = {
 
   number = true,
   relativenumber = true,
+	cursorline = true,
 }
 
 for key, value in pairs(options) do

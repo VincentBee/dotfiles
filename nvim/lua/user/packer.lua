@@ -17,42 +17,9 @@ packer.init {
 	}
 }
 
-
 return packer.startup(function(use)
 	-- Utils
   use 'wbthomason/packer.nvim'
-  use 'tpope/vim-surround'
-
-	-- Interface
-	use 'navarasu/onedark.nvim'
-	use {
-  	'kyazdani42/nvim-tree.lua',
-  	requires = {
-  	  'kyazdani42/nvim-web-devicons', -- optional, for file icons
-		},
-		tag = 'nightly' -- optional, updated every week. (see issue #1193)
-	}
-	use {
-		'akinsho/bufferline.nvim',
-		tag = "v2.*",
-		requires = 'kyazdani42/nvim-web-devicons'
-  }
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
-	use { 'folke/which-key.nvim' }
-
-	-- LSP
-	use {
-    "neovim/nvim-lspconfig",
-  }
-
-	-- Treesitter
-	use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-	}
 
 	for key, plugin in pairs(_G.registeredPlugins) do
 		use (plugin)
