@@ -13,6 +13,9 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 
-local wk = require("which-key")
-wk.register(_G.keymaps)
+local keymaps = require('core.keymaps')
+keymaps.addKeymap('<leader>c', ":bdelete<CR>", "Close buffer")
+keymaps.addKeymap('<leader>h', ":noh<CR>", "Clear highlight")
+keymaps.addKeymap('<leader>w', ":w<CR>", "Save file")
+keymaps.addKeymap('<leader>c', ":bdelete<CR>", "Close buffer")
 

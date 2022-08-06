@@ -1,5 +1,6 @@
 require 'core.plugins'
 require 'core.keymaps'
+local packer = require "core.packer"
 
 require 'plugins.bufferline'
 require 'plugins.comment'
@@ -13,7 +14,8 @@ require 'plugins.tree'
 require 'plugins.treesitter'
 require 'plugins.which-key'
 
-require "user.packer"
 require "user.options"
 require "user.keymaps"
+
+packer.startPacker()
 

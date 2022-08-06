@@ -1,7 +1,11 @@
-_G.registerPlugin({
+local plugins = require('core.plugins')
+
+plugins.registerPlugin({
 	'terrortylor/nvim-comment',
 	config = function()
-		require('nvim_comment').setup({
+		local plugin = require('nvim_comment')
+
+		plugin.setup({
 			line_mapping = "gcc",
 		})
 	end

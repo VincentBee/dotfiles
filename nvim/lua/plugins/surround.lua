@@ -1,2 +1,2 @@
-_G.registerPlugin('tpope/vim-surround')
+require('core.plugins').registerPlugin('tpope/vim-surround')
 

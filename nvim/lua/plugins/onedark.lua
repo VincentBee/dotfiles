@@ -1,4 +1,4 @@
-_G.registerPlugin({
+require('core.plugins').registerPlugin({
 	'navarasu/onedark.nvim',
 	config = function()
 		local theme = require('onedark')

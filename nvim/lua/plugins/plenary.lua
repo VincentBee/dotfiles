@@ -1,1 +1,1 @@
-_G.registerPlugin('nvim-lua/plenary.nvim');
+require('core.plugins').registerPlugin('nvim-lua/plenary.nvim');

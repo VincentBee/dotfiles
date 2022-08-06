@@ -1,6 +1,10 @@
-_G.registeredPlugins = {}
+local M = {};
 
-function _G.registerPlugin(pluginToRegister)
-	table.insert(_G.registeredPlugins, pluginToRegister)
+M.registeredPlugins = {}
+
+function M.registerPlugin(pluginToRegister)
+	table.insert(M.registeredPlugins, pluginToRegister)
 end
+
+return M
 

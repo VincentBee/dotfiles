@@ -1,4 +1,7 @@
-_G.registerPlugin({
+local keymaps = require('core.keymaps')
+local plugins = require('core.plugins')
+
+plugins.registerPlugin({
 	"neovim/nvim-lspconfig",
 	config = function()
 		local lspconfig = require("lspconfig")

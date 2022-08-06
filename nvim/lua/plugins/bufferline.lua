@@ -1,9 +1,13 @@
-_G.registerPlugin({
+local plugins = require('core.plugins')
+
+plugins.registerPlugin({
 	'akinsho/bufferline.nvim',
 	tag = "v2.*",
 	requires = 'kyazdani42/nvim-web-devicons',
 	config = function()
-		require('bufferline').setup {
+		local plugin = require('bufferline')
+
+		plugin.setup {
 			options = {
 				show_buffer_icons = false,
 				show_buffer_close_icons = false,
