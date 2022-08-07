@@ -9,6 +9,6 @@ sudo apt-get install fd-find
 
 ## TODO
 
-* autocompletion cmp luasnip
+* gitsign
 * autopairs
 * vim repeat

@@ -3,6 +3,7 @@ require 'core.keymaps'
 local packer = require "core.packer"
 
 require 'plugins.bufferline'
+require 'plugins.cmp'
 require 'plugins.comment'
 require 'plugins.lspconfig'
 require 'plugins.lualine'
