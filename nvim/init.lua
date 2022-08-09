@@ -1,5 +1,6 @@
 require 'core.plugins'
 require 'core.keymaps'
+require 'core.search'
 local packer = require "core.packer"
 
 require 'plugins.bufferline'

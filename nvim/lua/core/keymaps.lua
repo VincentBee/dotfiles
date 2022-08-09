@@ -21,12 +21,12 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 
-M.keymaps.addKeymap('<leader>c', ":bdelete<CR>", "Close buffer")
-M.keymaps.addKeymap('<leader>h', ":noh<CR>", "Clear highlight")
-M.keymaps.addKeymap('<leader>w', ":w<CR>", "Save file")
-M.keymaps.addKeymap('<leader>c', ":bdelete<CR>", "Close buffer")
+M.addKeymap('<leader>c', ":bdelete<CR>", "Close buffer")
+M.addKeymap('<leader>h', ":noh<CR>", "Clear highlight")
+M.addKeymap('<leader>w', ":w<CR>", "Save file")
+M.addKeymap('<leader>c', ":bdelete<CR>", "Close buffer")
 
-M.keymaps.addKeymap('ww', "viw", "Select word")
+M.addKeymap('ww', "viw", "Select word")
 
 
 return M
