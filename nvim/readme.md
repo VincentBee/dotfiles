@@ -10,5 +10,7 @@ sudo apt-get install fd-find
 ## TODO
 
 * gitsign
+* prettier
 * autopairs
 * vim repeat
+* impatient.nvim

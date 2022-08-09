@@ -10,4 +10,3 @@ plugins.registerPlugin({
 keymaps.addKeymap("<leader>ff", ":Telescope find_files<CR>", "Find files by name");
 keymaps.addKeymap("<leader>fg", ":Telescope live_grep<CR>", "Find files by name");
 
-
