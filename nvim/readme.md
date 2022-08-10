@@ -11,6 +11,5 @@ sudo apt-get install fd-find
 
 * gitsign
 * prettier
-* autopairs
-* vim repeat
 * impatient.nvim
+* https://github.com/andythigpen/nvim-coverage

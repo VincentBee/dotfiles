@@ -16,7 +16,10 @@ require('core.plugins').registerPlugin({
 				enable = true
 			},
 			autopair = {
-				enabled = true
+				enable = true
+			},
+			autotag = {
+				enable = true,
 			},
 			indent = {
 				enable = true

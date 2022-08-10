@@ -12,7 +12,7 @@ plugins.registerPlugin({
 
 		-- nvim-cmp setup
 		local cmp = require 'cmp'
-		cmp.setup {
+		cmp.setup({
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -34,7 +34,7 @@ plugins.registerPlugin({
 					else
 						fallback()
 					end
-				end, { 'i', 's' }),
+					end, { 'i', 's' }),
 				['<S-Tab>'] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
@@ -43,13 +43,13 @@ plugins.registerPlugin({
 					else
 						fallback()
 					end
-				end, { 'i', 's' }),
+					end, { 'i', 's' }),
 			}),
 			sources = {
 				{ name = 'nvim_lsp' },
 				{ name = 'luasnip' },
 			},
-		}
+		})
 	end
 })
 

@@ -13,3 +13,10 @@ export const qweqwe = () => {
 	}
 }
 
+export const vincent = () => {
+	const plop = [
+		{
+			oijqowij: "owijqoi"
+		}
+	]
+}
