@@ -22,3 +22,5 @@ if [ "$TMUX" = ""  ]; then tmux; fi
 
 alias n=nvim
 
+-e 
+alias luamake=/home/vincent/.config/nvim/lua-language-server/3rd/luamake/luamake
