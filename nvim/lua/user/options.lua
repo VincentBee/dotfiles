@@ -11,4 +11,5 @@ vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.background = 'dark'
+vim.opt.scrolloff = 9999
 

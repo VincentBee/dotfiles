@@ -70,6 +70,8 @@ return packer.startup(function(use)
     end
   }
   use 'windwp/nvim-ts-autotag'
+  use 'karb94/neoscroll.nvim'
+  use 'simrat39/symbols-outline.nvim'
 
   if packer_bootstrap then
     require('packer').sync()

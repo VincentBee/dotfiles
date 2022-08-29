@@ -88,3 +88,8 @@ require('lspconfig')['tsserver'].setup{
     flags = lsp_flags,
     capabilities = capabilities,
 }
+
+require("symbols-outline").setup({
+  show_numbers = true,
+})
+

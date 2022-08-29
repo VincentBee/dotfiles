@@ -11,6 +11,9 @@ require 'user.status'
 require 'user.git'
 
 require 'user.theme'
+require('neoscroll').setup({
+    -- Set any options as needed
+})
 
 require 'user.keymaps'
 require 'user.options'

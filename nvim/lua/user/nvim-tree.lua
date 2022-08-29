@@ -5,8 +5,12 @@ end
 
 nvimTree.setup {
   view = {
-    float = {
-      enable = true,
-    }
+    adaptive_size = true,
+  },
+  update_focused_file = {
+    enable = true,
+  },
+  diagnostics = {
+    enable = false,
   }
 }
