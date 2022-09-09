@@ -6,6 +6,11 @@ end
 nvimTree.setup {
   view = {
     adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "h", action = "parent_node" },
+      },
+    },
   },
   update_focused_file = {
     enable = true,
