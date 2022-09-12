@@ -25,9 +25,12 @@ keymap("n", "L", ":bnext<CR>", opts)
 keymap('n', '<leader>ff', ':Telescope find_files<CR>', opts)
 keymap('n', '<leader>fw', ':Telescope live_grep<CR>', opts)
 keymap('n', '<leader>fn', ':Telescope notify<CR>', opts)
+keymap('n', '<leader>fd', ':Telescope help_tags<CR>', opts)
 keymap('n', '<leader>pr', '<cmd>lua ReloadConfig()<CR>', { noremap = true, silent = false })
 
 keymap("n", "<leader>co", "<cmd>lua require('utils.close-buffer').closeOther()<CR>", opts)
 keymap("n", "<leader>ca", "<cmd>lua require('utils.close-buffer').closeAll()<CR>", opts)
 keymap("n", "<leader>cc", "<cmd>lua require('utils.close-buffer').closeCurrent()<CR>", opts)
 -- keymap("n", "<leader>cc", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+
+keymap("n", "vx", "<cmd>lua require('utils.refactoring').selectFunction()<CR>", opts)

@@ -9,20 +9,24 @@ treesitter.setup {
     "javascript",
     "html",
     "css",
-    "lua"
+    "lua",
+    "query"
   },
   sync_install = true,
   auto_install = true,
   highlight = {
-    enable = true
+    enable = true,
   },
   autopair = {
-    enable = true
+    enable = true,
   },
   autotag = {
     enable = true,
   },
   indent = {
-    enable = true
+    enable = true,
+  },
+  playground = {
+    enabled = true,
   }
 }

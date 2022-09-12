@@ -40,6 +40,8 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
+  use 'nvim-treesitter/playground'
+
   use 'neovim/nvim-lspconfig'
   use 'williamboman/mason.nvim'
   use {
@@ -47,7 +49,6 @@ return packer.startup(function(use)
     tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use 'rcarriga/nvim-notify'
   use 'terrortylor/nvim-comment'
   use {
     'akinsho/bufferline.nvim',
