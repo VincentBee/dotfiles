@@ -9,11 +9,15 @@ M.getFunctionNode = function(node)
     return nil
   end
 
-  if node:type() ~= 'function_declaration' then
-    return M.getFunctionNode(parent)
+  if node:type() == 'function_declaration' then
+    return node
   end
 
-  return node
+  if node:type() == 'arrow_function' then
+    return node:parent()
+  end
+
+  return M.getFunctionNode(parent)
 end
 
 M.selectFunction = function()

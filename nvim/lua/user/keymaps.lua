@@ -17,6 +17,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>p", ":TSPlayground<CR>", opts)
 keymap("n", "<leader>ww", ":w<CR>", opts)
 keymap("n", "<leader>hh", ":noh<CR>", opts)
 keymap("n", "H", ":bprev<CR>", opts)
