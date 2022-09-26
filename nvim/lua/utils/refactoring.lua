@@ -10,14 +10,44 @@ M.getFunctionNode = function(node)
   end
 
   if node:type() == 'function_declaration' then
-    return node
+    -- find optional export_statement in the same line
+    local optionalExport = M.getExportNode(node)
+
+    if optionalExport == nil then
+      return node
+    else
+      return optionalExport
+    end
   end
 
   if node:type() == 'arrow_function' then
+    -- find the lexical_declaration
+    -- find the optional export_statement
     return node:parent()
   end
 
   return M.getFunctionNode(parent)
+end
+
+M.getExportNode = function(node)
+  local root = ts.get_root_for_node()
+  local parent= node:parent()
+  local line = node:start();
+  local parentLine = parent:start()
+
+  if parent == root then
+    return nil
+  end
+
+  if parentLine ~= line then
+    return nil
+  end
+
+  if node:type() == 'export_statement' then
+    return node;
+  end
+
+  return M.getExportNode(parent)
 end
 
 M.selectFunction = function()

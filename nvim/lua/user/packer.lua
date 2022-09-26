@@ -28,13 +28,6 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-    },
-    tag = 'nightly'
-  }
   use 'navarasu/onedark.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -49,6 +42,7 @@ return packer.startup(function(use)
     tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
   use 'terrortylor/nvim-comment'
   use {
     'akinsho/bufferline.nvim',

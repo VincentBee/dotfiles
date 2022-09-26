@@ -57,7 +57,7 @@ M.closeAll = function()
   end
 end
 
-M.closeCurrent = function ()
+M.closeCurrent = function()
   n.nvim_buf_delete(0, {})
 end
 

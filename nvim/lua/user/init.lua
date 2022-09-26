@@ -9,6 +9,7 @@ require 'user.comment'
 require 'user.buffers'
 require 'user.status'
 require 'user.git'
+require 'user.telescope'
 
 require 'user.theme'
 require('neoscroll').setup({
@@ -17,3 +18,4 @@ require('neoscroll').setup({
 
 require 'user.keymaps'
 require 'user.options'
+
