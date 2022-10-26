@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 keymap("", "<Space>", "<Nop>", opts)
@@ -28,8 +27,13 @@ keymap('n', '<leader>fw', ':Telescope live_grep<CR>', opts)
 keymap('n', '<leader>fd', ':Telescope help_tags<CR>', opts)
 keymap('n', '<leader>pr', '<cmd>lua ReloadConfig()<CR>', { noremap = true, silent = false })
 
-keymap("n", "<leader>co", "<cmd>lua require('utils.close-buffer').closeOther()<CR>", opts)
+vim.keymap.set('n', '<space>co', require'utils.close-buffer'.closeOther, opts)
+-- keymap("n", "<leader>co", "<cmd>lua require('utils.close-buffer').closeOther()<CR>", opts)
 keymap("n", "<leader>CC", "<cmd>lua require('utils.close-buffer').closeAll()<CR>", opts)
 keymap("n", "<leader>cc", "<cmd>lua require('utils.close-buffer').closeCurrent()<CR>", opts)
 
 keymap("n", "vx", "<cmd>lua require('utils.refactoring').selectFunction()<CR>", opts)
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
