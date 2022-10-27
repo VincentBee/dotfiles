@@ -10,7 +10,6 @@ treesitter.setup {
     "html",
     "css",
     "lua",
-    "query"
   },
   sync_install = true,
   auto_install = true,

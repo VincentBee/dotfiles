@@ -1,11 +1,31 @@
 local M = {}
 local n = vim.api
 
+M.saveCurrent = function ()
+  vim.notify('save current')
+  vim.cmd('silent! write!')
+end
+
+M.saveAll = function ()
+  vim.notify('save all')
+  vim.cmd('silent! wall!')
+end
+
+M.nextFile = function ()
+  vim.notify('next file')
+  vim.cmd('bnext')
+end
+
+M.previousFile = function ()
+  vim.notify('previous file')
+  vim.cmd('bprev')
+end
+
 M.closeOther = function()
   local buffers = n.nvim_list_bufs()
   local currentBuffer = n.nvim_buf_get_name(0)
 
-  for key, bufferId in pairs(buffers) do
+  for _, bufferId in pairs(buffers) do
     local bufferName = n.nvim_buf_get_name(bufferId)
     local is_ok = true
 
@@ -21,7 +41,7 @@ M.closeOther = function()
       is_ok = false
     end
 
-    if string.match(bufferName, "NvimTree") then
+    if string.match(bufferName, 'NvimTree') then
       is_ok = false
     end
 
@@ -33,9 +53,8 @@ end
 
 M.closeAll = function()
   local buffers = n.nvim_list_bufs()
-  local currentBuffer = n.nvim_buf_get_name(0)
 
-  for key, bufferId in pairs(buffers) do
+  for _, bufferId in pairs(buffers) do
     local bufferName = n.nvim_buf_get_name(bufferId)
     local is_ok = true
 
@@ -47,7 +66,7 @@ M.closeAll = function()
       is_ok = false
     end
 
-    if string.match(bufferName, "NvimTree") then
+    if string.match(bufferName, 'NvimTree') then
       is_ok = false
     end
 

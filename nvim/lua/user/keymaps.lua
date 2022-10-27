@@ -1,39 +1,60 @@
 local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
+local key = vim.keymap.set
+local file = require 'utils.file'
+local refactoring = require 'utils.refactoring'
+local config = require'utils.config'
+local screen = require'utils.screen'
 
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+key('', '<Space>', '<Nop>', opts)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- window change
+key('n', 'sh', '<C-w>h', opts)
+key('n', 'sj', '<C-w>j', opts)
+key('n', 'sk', '<C-w>k', opts)
+key('n', 'sl', '<C-w>l', opts)
+key('n', 'dh', file.previousFile, opts)
+key('n', 'dl', file.nextFile, opts)
+key('n', 'vj', screen.splitBelow, opts)
+key('n', 'vk', screen.splitAbove, opts)
+key('n', 'vl', screen.splitRight, opts)
+key('n', 'vh', screen.splitLeft, opts)
+key('n', 'vv', screen.closeScreen, opts)
 
-keymap("n", "<", "<<", opts)
-keymap("n", ">", ">>", opts)
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+-- fast moves
+key('', 'fj', '<C-d>', opts)
+key('', 'fjj', 'G', opts)
+key('', 'fk', '<C-u>', opts)
+key('', 'fkk', 'gg', opts)
+key('', 'fh', 'B', opts)
+key('', 'fhh', '^', opts)
+key('', 'fl', 'W', opts)
+key('', 'fll', '$', opts)
 
-keymap("n", "<leader>p", ":TSPlayground<CR>", opts)
-keymap("n", "<leader>ww", ":w<CR>", opts)
-keymap("n", "<leader>hh", ":noh<CR>", opts)
-keymap("n", "H", ":bprev<CR>", opts)
-keymap("n", "L", ":bnext<CR>", opts)
+-- identation
+key('n', '<', '<<', opts)
+key('n', '>', '>>', opts)
+key('v', '<', '<gv', opts)
+key('v', '>', '>gv', opts)
 
-keymap('n', '<leader>fe', ':Telescope file_browser path=%:p:h<CR>', opts)
-keymap('n', '<leader>ff', ':Telescope find_files<CR>', opts)
-keymap('n', '<leader>fw', ':Telescope live_grep<CR>', opts)
-keymap('n', '<leader>fd', ':Telescope help_tags<CR>', opts)
-keymap('n', '<leader>pr', '<cmd>lua ReloadConfig()<CR>', { noremap = true, silent = false })
+key('n', '<leader>p', ':TSPlayground<CR>', opts)
+key('n', '<leader>hh', ':noh<CR>', opts)
 
-vim.keymap.set('n', '<space>co', require'utils.close-buffer'.closeOther, opts)
--- keymap("n", "<leader>co", "<cmd>lua require('utils.close-buffer').closeOther()<CR>", opts)
-keymap("n", "<leader>CC", "<cmd>lua require('utils.close-buffer').closeAll()<CR>", opts)
-keymap("n", "<leader>cc", "<cmd>lua require('utils.close-buffer').closeCurrent()<CR>", opts)
+key('n', 'fe', ':Telescope file_browser path=%:p:h<CR>', opts)
+key('n', 'fd', ':Telescope find_files<CR>', opts)
+key('n', 'fw', ':Telescope live_grep<CR>', opts)
+key('n', 'pr', config.reload, opts)
 
-keymap("n", "vx", "<cmd>lua require('utils.refactoring').selectFunction()<CR>", opts)
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+key('n', 'w', file.saveCurrent, opts)
+key('n', 'ww', file.saveAll, opts)
+key('n', 'qo', file.closeOther, opts)
+key('n', 'qq', file.closeAll, opts)
+key('n', 'q', file.closeCurrent, opts)
+
+key('n', 'vx', refactoring.selectFunction, opts)
+
+key('n', '<space>e', vim.diagnostic.open_float, opts)
+key('n', '[d', vim.diagnostic.goto_prev, opts)
+key('n', ']d', vim.diagnostic.goto_next, opts)
+key('n', '<space>q', vim.diagnostic.setloclist, opts)

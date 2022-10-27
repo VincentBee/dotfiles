@@ -12,4 +12,8 @@ vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.background = 'dark'
 vim.opt.scrolloff = 9999
+vim.opt.timeoutlen = 200
+vim.opt.ttimeoutlen = 0
 
+vim.g.loaded_netrw = ' '
+vim.g.loaded_netrwPlugin = ' '
