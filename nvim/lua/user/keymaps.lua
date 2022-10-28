@@ -1,9 +1,10 @@
 local opts = { noremap = true, silent = true }
+local imediate = { noremap = true, silent = true, nowait = true }
 local key = vim.keymap.set
 local file = require 'utils.file'
 local refactoring = require 'utils.refactoring'
-local config = require'utils.config'
-local screen = require'utils.screen'
+local config = require 'utils.config'
+local screen = require 'utils.screen'
 
 key('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
@@ -23,14 +24,14 @@ key('n', 'vh', screen.splitLeft, opts)
 key('n', 'vv', screen.closeScreen, opts)
 
 -- fast moves
-key('', 'fj', '<C-d>', opts)
-key('', 'fjj', 'G', opts)
-key('', 'fk', '<C-u>', opts)
-key('', 'fkk', 'gg', opts)
-key('', 'fh', 'B', opts)
-key('', 'fhh', '^', opts)
-key('', 'fl', 'W', opts)
-key('', 'fll', '$', opts)
+key('', 'fj', '<C-d>', imediate)
+key('', 'fjj', 'G', imediate)
+key('', 'fk', '<C-u>', imediate)
+key('', 'fkk', 'gg', imediate)
+key('', 'fh', 'B', imediate)
+key('', 'fhh', '^', imediate)
+key('', 'fl', 'w', imediate)
+key('', 'fll', '$', imediate)
 
 -- identation
 key('n', '<', '<<', opts)

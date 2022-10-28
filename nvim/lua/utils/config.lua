@@ -5,6 +5,9 @@ M.reload = function ()
     if name:match('^user') and not name:match('nvim-tree') then
       package.loaded[name] = nil
     end
+    if name:match('^utils') and not name:match('nvim-tree') then
+      package.loaded[name] = nil
+    end
   end
 
   dofile(vim.env.MYVIMRC)
