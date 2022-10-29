@@ -10,19 +10,30 @@ key('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- window change
+-- move to the next window on the left
 key('n', 'sh', '<C-w>h', opts)
+-- move to the next window below
 key('n', 'sj', '<C-w>j', opts)
+-- move to the next window above
 key('n', 'sk', '<C-w>k', opts)
+-- move to the next window on the right
 key('n', 'sl', '<C-w>l', opts)
+-- open the previous file on the window
 key('n', 'dh', file.previousFile, opts)
+-- open the next file on the window
 key('n', 'dl', file.nextFile, opts)
-key('n', 'vj', screen.splitBelow, opts)
-key('n', 'vk', screen.splitAbove, opts)
-key('n', 'vl', screen.splitRight, opts)
+-- create a new window on the left
 key('n', 'vh', screen.splitLeft, opts)
+-- create a new window below
+key('n', 'vj', screen.splitBelow, opts)
+-- create a new window above
+key('n', 'vk', screen.splitAbove, opts)
+-- create a new window on the right
+key('n', 'vl', screen.splitRight, opts)
+-- close the current window without closing a file
 key('n', 'vv', screen.closeScreen, opts)
-
+-- undo all modification on a file
+key('n', 'U', file.undoAll)
 -- fast moves
 key('', 'fj', '<C-d>', imediate)
 key('', 'fjj', 'G', imediate)
