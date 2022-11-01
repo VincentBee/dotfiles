@@ -1,3 +1,7 @@
+const vincent = 'toto'
+
+// comment
+
 interface Props {
   foo: string;
 }

@@ -1,10 +1,11 @@
 local opts = { noremap = true, silent = true }
-local imediate = { noremap = true, silent = true, nowait = true }
 local key = vim.keymap.set
-local file = require 'utils.file'
-local refactoring = require 'utils.refactoring'
-local config = require 'utils.config'
-local screen = require 'utils.screen'
+local file = require 'core.file'
+local refactoring = require 'core.refactoring'
+local config = require 'core.config'
+local move = require 'core.move'
+local screen = require 'core.screen'
+local debug = require 'core.debug'
 
 key('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
@@ -33,16 +34,19 @@ key('n', 'vl', screen.splitRight, opts)
 -- close the current window without closing a file
 key('n', 'vv', screen.closeScreen, opts)
 -- undo all modification on a file
-key('n', 'U', file.undoAll)
--- fast moves
-key('', 'fj', '<C-d>', imediate)
-key('', 'fjj', 'G', imediate)
-key('', 'fk', '<C-u>', imediate)
-key('', 'fkk', 'gg', imediate)
-key('', 'fh', 'B', imediate)
-key('', 'fhh', '^', imediate)
-key('', 'fl', 'w', imediate)
-key('', 'fll', '$', imediate)
+key('n', 'U', file.undoAll, opts)
+-- go to the bottom
+key('n', 'gj', move.down, opts)
+-- go to the top
+key('', 'gk', move.up, opts)
+-- go to the left
+key('', 'gh', move.left, opts)
+-- go to the right
+
+key('', 'fJ', 'G', opts)
+key('', 'fK', 'gg', opts)
+key('', 'fH', '^', opts)
+key('', 'fL', '$', opts)
 
 -- identation
 key('n', '<', '<<', opts)
@@ -56,7 +60,9 @@ key('n', '<leader>hh', ':noh<CR>', opts)
 key('n', 'fe', ':Telescope file_browser path=%:p:h<CR>', opts)
 key('n', 'fd', ':Telescope find_files<CR>', opts)
 key('n', 'fw', ':Telescope live_grep<CR>', opts)
+key('n', 'ff', ':Telescope help_tags<CR>', opts)
 key('n', 'pr', config.reload, opts)
+key('n', 'pl', debug.toggle, opts)
 
 key('n', 'w', file.saveCurrent, opts)
 key('n', 'ww', file.saveAll, opts)

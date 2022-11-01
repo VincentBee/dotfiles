@@ -32,7 +32,7 @@ end
 M.getExportNode = function(node)
   local root = ts.get_root_for_node()
   local parent= node:parent()
-  local line = node:start();
+  local line = node:start()
   local parentLine = parent:start()
 
   if parent == root then
