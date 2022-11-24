@@ -9,7 +9,6 @@ treesitter.setup {
     "javascript",
     "html",
     "css",
-    "lua",
   },
   sync_install = true,
   auto_install = true,

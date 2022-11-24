@@ -14,6 +14,7 @@ vim.opt.background = 'dark'
 vim.opt.scrolloff = 9999
 vim.opt.timeoutlen = 350
 vim.opt.ttimeoutlen = 0
+vim.opt.undofile = true
 vim.g.loaded_netrw = ' '
 vim.g.loaded_netrwPlugin = ' '
 vim.g.loaded_zipPlugin = 1

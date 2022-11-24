@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/vincent/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/vincent/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/vincent/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -204,6 +209,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/vincent/.local/share/nvim/site/pack/packer/start/vim-repeat",
     url = "https://github.com/tpope/vim-repeat"
+  },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "/home/vincent/.local/share/nvim/site/pack/packer/start/vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
   },
   ["vim-surround"] = {
     loaded = true,

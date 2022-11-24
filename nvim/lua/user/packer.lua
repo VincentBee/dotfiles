@@ -68,9 +68,6 @@ return packer.startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-
-
-
   use 'lewis6991/gitsigns.nvim'
   use {
     "windwp/nvim-autopairs",
@@ -80,6 +77,8 @@ return packer.startup(function(use)
   }
   use 'windwp/nvim-ts-autotag'
   use 'simrat39/symbols-outline.nvim'
+  use 'dstein64/vim-startuptime'
+  use 'lewis6991/impatient.nvim'
 
   if packer_bootstrap then
     require('packer').sync()
