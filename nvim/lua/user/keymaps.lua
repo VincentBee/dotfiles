@@ -3,10 +3,10 @@ local nowait = { noremap = true, silent = true, nowait = true }
 local key = vim.keymap.set
 local file = require 'core.file'
 local refactoring = require 'core.refactoring'
-local config = require 'core.config'
+local config = require 'config'
 local move = require 'core.move'
 local screen = require 'core.screen'
-local debug = require 'core.debug'
+local debug = require 'config.debug'
 
 key('', '<Space>', '<Nop>', wait)
 vim.g.mapleader = ' '
@@ -37,13 +37,13 @@ key('n', 'vv', screen.closeScreen, wait)
 -- undo all modification on a file
 key('n', 'U', file.undoAll, wait)
 -- go to the bottom
-key('n', '<A-j>', move.down, wait)
+key('n', 'fj', move.down, wait)
 -- go to the top
-key('', '<A-k>', move.up, wait)
+key('', 'fk', move.up, wait)
 -- go to the left
-key('', '<A-h>', move.left, wait)
+key('', 'fh', move.left, wait)
 -- go to the right
-key('', '<A-l>', move.right, wait)
+key('', 'fl', move.right, wait)
 
 key('', 'fJ', 'G', wait)
 key('', 'fK', 'gg', wait)
@@ -65,11 +65,12 @@ key('n', 'fe', ':Telescope file_browser path=%:p:h<CR>', wait)
 key('n', 'fd', ':Telescope find_files<CR>', wait)
 key('n', 'fw', ':Telescope live_grep<CR>', wait)
 key('n', 'ff', ':Telescope help_tags<CR>', wait)
+key('n', 'fW', ':Telescope grep_string<CR>', wait)
 
 key('n', 'w', file.saveCurrent, nowait)
--- key('n', 'ww', file.saveAll, opts)
--- key('n', 'qo', file.closeOther, opts)
--- key('n', 'qq', file.closeAll, opts)
+key('n', 'W', file.saveAll, nowait)
+key('n', 'Q', file.closeOther, wait)
+-- key('n', 'QQ', file.closeAll, wait)
 key('n', 'q', file.closeCurrent, nowait)
 
 key('n', 'vx', refactoring.selectFunction, wait)

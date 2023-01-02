@@ -53,7 +53,7 @@ local function getPreviousMainNode(node)
 end
 
 function M.down()
-  require'core.debug'.log('test')
+  require'config.debug'.log('test')
   local node = getMainNode(ts.get_node_at_cursor())
   local nextNode = getNextMainNode(node)
   if nextNode then ts.goto_node(nextNode, false, true) end

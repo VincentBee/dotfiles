@@ -1,5 +1,5 @@
 M = {}
-local debug = require'core.debug'
+local debug = require'config.debug'
 
 M.notify = function(msg)
   -- print(vim.inspect(msg))

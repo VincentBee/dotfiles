@@ -1,2 +1,2 @@
-require('impatient')
-require('user')
+require 'impatient'
+require 'user'
